@@ -10,6 +10,6 @@ class StudentViewSet(viewsets.ModelViewSet):
     serializer_class = StudentSerializer
 
     def list(self, request, *args, **kwargs):
-        serializer = StudentSerializer(Student.objects.all())
+        serializer = StudentSerializer(Student.objects.all(), many=True)
         return Response(serializer.data)
 
