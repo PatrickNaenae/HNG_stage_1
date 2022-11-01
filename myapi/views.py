@@ -6,10 +6,10 @@ from rest_framework import viewsets
 
 
 class StudentViewSet(viewsets.ModelViewSet):
-    queryset = Student.objects.get(pk=1)
+    queryset = Student.objects.all()
     serializer_class = StudentSerializer
 
     def list(self, request, *args, **kwargs):
-        serializer = StudentSerializer(Student.objects.get(pk=1))
+        serializer = StudentSerializer(Student.objects.all())
         return Response(serializer.data)
 
